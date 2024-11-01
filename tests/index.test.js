@@ -1,6 +1,6 @@
 import  Ship  from '../src/apps/ship.js';
 import GameBoard from '../src/apps/gameBoard.js';
-
+import { RealPlayer, ComputerPlayer } from '../src/apps/player.js';
 
 
 describe('gameBoard', () => {

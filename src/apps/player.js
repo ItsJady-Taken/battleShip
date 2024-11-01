@@ -3,15 +3,20 @@ import GameBoard from "./gameBoard";
 class Player {
     constructor(type) {
         this.type = type;
-        this.board = new GameBoard();
+        this.newBoard = new GameBoard();
     }
 }
 
 class RealPlayer extends Player {
-    constructor() {}
+    constructor() {
+        super('human');
+    }
 }
 
 class ComputerPlayer extends Player {
-    constructor() {}
+    constructor() {
+        super('computer');
+    }
 }
 
+export { RealPlayer, ComputerPlayer };
