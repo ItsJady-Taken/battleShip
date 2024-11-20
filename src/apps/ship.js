@@ -6,13 +6,14 @@ class Ship {
     }
     // keeps track of how many times the ship has been hit
     hit() {
-        
         this.hit_count++;
-        
-        
     }
     isSunk() {
-        return this.hit_count >= this.length;
+        if (this.hit_count === this.length) {
+            this.sunk = true;
+            this.hit_count = 0;
+        }
+        return this.sunk;
     }
 }
 

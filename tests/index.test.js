@@ -32,7 +32,8 @@ describe('gameBoard', () => {
 
         it('should return missed if ship is not hit', () => {
             gameBoard.addShipY(3, 4, 5);
-            const ship = gameBoard.receiveAttack(4, 4);
+            const ship = gameBoard.receiveAttack(3, 6);
+            gameBoard.receiveAttack(3, 5);
     
             expect(ship).toBeNull();
             expect(gameBoard.missed.length).toBe(1);
@@ -50,10 +51,10 @@ describe('gameBoard', () => {
             gameBoard.addShipY(3, 4, 5);
             
             gameBoard.receiveAttack(3, 4);
-            gameBoard.receiveAttack(3, 5);
-            gameBoard.receiveAttack(3, 6);
-            gameBoard.receiveAttack(3, 7);
-            gameBoard.receiveAttack(3, 8);
+            gameBoard.receiveAttack(4, 4);
+            // gameBoard.receiveAttack(4, 6);
+            // gameBoard.receiveAttack(4, 7);
+            // gameBoard.receiveAttack(4, 8);
 
             expect(gameBoard.missed.length).toBe(0);
             expect(gameBoard.hits.length).toBe(5);

@@ -3,7 +3,7 @@ import GameBoard from "./gameBoard";
 class Player {
     constructor(type) {
         this.type = type;
-        this.newBoard = new GameBoard();
+        this.board = new GameBoard();
     }
 }
 

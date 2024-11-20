@@ -10,18 +10,25 @@
             <header>
                 <h1>BattleShip</h1>
             </header>
-            <section class="game-section">
-                <div>
-                    <h2>Your Board</h2>
-                    <div class="gameBoard"></div>
-                </div>
-                <div class="game-buttons">
+            <aside class="game-buttons">
                     <button id="start-game" aria-label="Start Game"><label>Start Game</label></button>
                     <button id="reset-game" aria-label="Reset Game"> <label>Reset Game</label></button>
+                </aside>
+                <div class="game-info">
+                    
+                    <!-- <p>Turn: <span id="turn"></span></p>
+                    <p>Shots: <span id="shots"></span></p> -->
                 </div>
+            <section class="game-section">
+                
+                <div>
+                    <h2>Your Board</h2>
+                    <div class="gameBoard player"></div>
+                </div>
+                
                 <div>
                     <h2>Computer Board</h2>
-                    <div class="gameBoard"></div>
+                    <div class="gameBoard computer"></div>
                 </div>
             </section>
         </main>
