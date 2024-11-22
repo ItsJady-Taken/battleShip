@@ -45,12 +45,11 @@ function createBoard(size) {
   // Reset the game, when the reset button is clicked
   resetGameBtn.addEventListener('click', () => {
     //------ WORK ON THE RESET FUNCTIONALITY ALSO CONSIDER TO START GAME WHEN PRESING KEY----//
-    // const realPlayerBoard = new RealPlayer().board;
-    // const ComputerPlayerBoard = new ComputerPlayer().board;
+    const realPlayerBoard = new RealPlayer().board;
+    const ComputerPlayerBoard = new ComputerPlayer().board;
     
-    // realPlayerBoard.reset();
-    // ComputerPlayerBoard.reset();
-
+    realPlayerBoard.reset();
+    ComputerPlayerBoard.reset();
 
     const gameBoard = document.querySelectorAll('.gameBoard');
     gameBoard.forEach((board) => {
@@ -59,20 +58,7 @@ function createBoard(size) {
     createBoard(size);
 
     startGame();
-    // gameBoard.forEach((board) => {
-    //     board.style.display = 'grid';
-    //     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    //     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-
-    //     // display the cells for the gameboard
-    //     for (let i = 0; i < boardSize; i++) {
-    //          const boardCell = document.createElement('div');
-    //         boardCell.classList.add('boardCell');
-
-    //         board.appendChild(boardCell);
-    //     }
-       
-    // })
+   
 
     startGameBtn.classList.remove('disabled');
   }) 
@@ -179,13 +165,13 @@ function startGame() {
 }
 
 function addShipsUi(playerBoard, computerBoard) {
-  const ships = {
-    carrier: {count: 1, length: 5, color: 'purple'},
-    battleship: {count: 1, length: 4, color: 'blue'},
-    cruiser: {count: 1, length: 3, color: 'green'},
-    submarine: {count: 1, length: 3, color: 'yellow'},
-    destroyer: {count: 1, length: 2, color: 'orange'},
-  };
+  const ships = [
+    {type: 'carrier', length: 5, color: 'purple'},
+    {type: 'battleship', length: 4, color: 'blue'},
+    {type: 'cruiser', length: 3, color: 'green'},
+    {type: 'submarine', length: 3, color: 'yellow'},
+    {type: 'destroyer', length: 2, color: 'orange'},
+  ];
 
 
   const realPlayerBoard = document.querySelector('.player'); 
@@ -209,8 +195,8 @@ function addShipsUi(playerBoard, computerBoard) {
       if (playerBoard.board[i][j] !== null) {
       
         //get the color of the ship
-        const shipType = Object.keys(ships).find(key => ships[key].length === playerBoard.board[i][j].length);
-        const shipColor = ships[shipType].color;
+        const shipType = ships.find((ship) => ship.length === playerBoard.board[i][j].length);
+        const shipColor = shipType.color;
 
         const shipDiv = document.createElement('div');
         shipDiv.dataset.x = i; 
@@ -269,7 +255,7 @@ function genaratingShips(playerBoard, computerBoard) {
             // Adjust random bounds based on orientation to avoid overflow
             if (orientation === "x" && y + length > 10) continue;
             if (orientation === "y" && x + length > 10) continue;
-
+ 
             if (!doesShipOverlap(board, x, y, length, orientation)) {
                 break;
             }
