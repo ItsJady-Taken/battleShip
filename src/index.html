@@ -6,32 +6,24 @@
         <title>BattleShip</title>
     </head>
     <body>
-        <main>
-            <header>
-                <h1>BattleShip</h1>
-            </header>
-            <aside class="game-buttons">
-                    <button id="start-game" aria-label="Start Game"><label>Start Game</label></button>
-                    <button id="reset-game" aria-label="Reset Game"> <label>Reset Game</label></button>
-                </aside>
-                <div class="game-info">
-                    
-                    <!-- <p>Turn: <span id="turn"></span></p>
-                    <p>Shots: <span id="shots"></span></p> -->
-                </div>
-            <section class="game-section">
-                
-                <div>
-                    <h2>Your Board</h2>
-                    <div class="gameBoard player"></div>
-                </div>
-                
-                <div>
-                    <h2>Computer Board</h2>
-                    <div class="gameBoard computer"></div>
-                </div>
-            </section>
-        </main>
+        <div class="game-info">
+            <p>Info:<span class="info"> Drag and place your ships</span></p>
+        </div>
+          <div class="game-board-container"></div>
+        <div class="game-buttons">
+            <button class="start-button">Start</button>
+            <button class="reset-button">Reset</button>
+        </div>
+        <section class="ship-options-container">
+            <div class="ship-options">
+                <div id="0" class="destroyer destroyer-preview" draggable="true"></div>
+                <div id="1" class="submarine submarine-preview" draggable="true"></div>
+                <div id="2" class="cruiser cruiser-preview" draggable="true"></div>
+                <div id="3" class="battleship battleship-preview" draggable="true"></div>
+                <div id="4" class="carrier carrier-preview" draggable="true"></div>
+            </div>
+            <button class="flip-ship-button">Flip</button>
+        </section>
         
     </body>
 </html>

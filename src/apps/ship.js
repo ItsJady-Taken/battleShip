@@ -1,5 +1,6 @@
 class Ship {
-    constructor(length) {
+    constructor(name, length) {
+        this.name = name;
         this.length = length; // Size of the ship
         this.hit_count = 0; // count of hits
         this.sunk = false;
@@ -11,7 +12,6 @@ class Ship {
     isSunk() {
         if (this.hit_count === this.length) {
             this.sunk = true;
-            this.hit_count = 0;
         }
         return this.sunk;
     }
