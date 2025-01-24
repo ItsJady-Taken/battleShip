@@ -163,7 +163,8 @@ function restartGame() {
   playerTurn = undefined;
   draggedShip = undefined;
   gameOver = false;
-
+  angle = 0;
+  
   // Reset GameBoard instances
   playerBoard = new GameBoard('player');
   computerBoard = new GameBoard('computer');
