@@ -2,96 +2,221 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(180deg, rgb(147, 207, 235), rgb(161, 220, 236), rgb(45, 142, 216));
+    height: 100vh;
 }
 
-section {
-    display: flex;
-    justify-content: flex-start;
-}
-
-header {
-    text-align: center;
-}
-
-aside {
+.game-info {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.game-board-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.game-board-container > div {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
     gap: 10px;
 }
 
-.game-section {
+
+
+.flip-ship-button:hover {
+    background-color: rgb(11, 45, 112);
+}
+
+.flip-ship-button:active {
+    transform: translateY(2px);
+}
+
+.start-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(15, 163, 15);
+    border: 3px solid rgb(7, 69, 7);
+    border-bottom: 8px solid rgb(7, 69, 7);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: rgb(7, 69, 7);
+}
+
+.start-button:active {
+    transform: translateY(2px);
+}
+
+.reset-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(163, 15, 15);
+    border: 3px solid rgb(69, 7, 7);
+    border-bottom: 8px solid rgb(69, 7, 7);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-button:active {
+    transform: translateY(2px);
+}
+
+.reset-button:hover {
+    background-color: rgb(69, 7, 7);
+}
+
+.ship-options-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.ship-options { 
+    background-color: yellow;
+    width: 500px;
+    height: 80px;
+    display: flex;
+    padding: 0 10px;
+    margin: 14px;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.flip-ship-button {
     padding: 10px;
-    justify-content: space-around;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(10, 80, 192);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.gameBoard {
-    width: 400px;
-    height: 400px;
-    max-height: 500px;
-    max-width: 500px;
-    margin: 0 auto;
-    border: 1px solid black;
+#computer .battleship, #computer .carrier, #computer .cruiser, #computer .submarine, #computer .destroyer {
+    background-color: transparent;
 }
 
-.boardCell {
+.battleship {
+    background-color: red;
+}
+
+.carrier {
+    background-color: green;
+}
+
+.cruiser {
+    background-color: blue;
+}
+
+.submarine {
+    background-color: black;
+}
+
+.destroyer {
+    background-color: gray;
+}
+
+.battleship-preview {
+    width: 60px;
+    height: 12px;
+    margin: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.carrier-preview {
+    width: 74px;
+    height: 12px;
+    margin: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cruiser-preview {
+    width: 50px;
+    height: 10px;
+    margin: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.submarine-preview {
+    width: 50px;
+    height: 10px;
+    margin: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.destroyer-preview {
+    width: 30px;
+    height: 10px;
+    margin: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.square.valid-hover {
+    background-color: lightslategray;
+}
+
+#computer .square:hover {
+    background-color: lightslategray;
+}
+
+.hit {
     position: relative;
-    border: 1px solid rgb(211, 209, 209);
-}
-
-#start-game {
-    background-color: rgb(4, 167, 4);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-}
-
-#start-game:hover {
-    cursor: pointer;
-    background-color: rgb(0, 128, 0);
-}
-
-#start-game:active {
-    background-color: rgb(0, 128, 0);
-    transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-}
-
-.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-
-}
-
-#reset-game {
-    background-color: rgb(212, 4, 4);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-}
-
-#reset-game:hover {
-    cursor: pointer;
-    background-color: rgb(122, 3, 3);
-}
-
-#reset-game:active {
-    background-color: rgb(128, 0, 0);
-    transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-}
-
-.dot {
+    top: 6px;
+    left: 6px;
+     border-radius: 50%;
+    margin: auto;
     width: 10px;
     height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    background-color: transparent;
-  }
+    background-color: red;
+}
+
+.miss {
+    position: relative;
+    top: 6px;
+    left: 6px;
+    border-radius: 50%;
+    display: inline-flex;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+#computer div.square {
+    cursor: pointer;
+}
+
+#computer div.square.hit,
+#computer div.square.miss {
+    cursor: not-allowed;
+    pointer-events: none;
+}
