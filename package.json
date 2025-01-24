@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "script": "git add dist -f && git commit -m 'Deployment commit' && git subtree push --prefix dist origin gh-pages"
+
   },
   "keywords": [],
   "author": "",
